@@ -3,14 +3,14 @@ package baseball.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import static camp.nextstep.edu.missionutils.Console.readLine;
+import camp.nextstep.edu.missionutils.Console;
 
 public class Player
 {
     private static List<Integer> numbers = new ArrayList<>();
     public void throwBall()
     {
-        String input = readLine();
+        String input = Console.readLine();
 
         if (input.length() != 3)
             throw new IllegalArgumentException("[ERROR] 3개의 공을 던져주세요.");

@@ -26,9 +26,16 @@ public class View
             System.out.println(end);
             String startNewPlay = readLine();
             if(startNewPlay.equals("1"))
+            {
                 state = State.RESTART;
+                return;
+            }
+
             if(startNewPlay.equals("2"))
+            {
                 state = State.END;
+                return;
+            }
             throw new IllegalArgumentException("[ERROR] 1이나 2를 입력하세요.");
         }
         state = State.CONTINUE;

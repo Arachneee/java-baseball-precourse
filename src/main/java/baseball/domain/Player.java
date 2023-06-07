@@ -1,5 +1,8 @@
 package baseball.domain;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +11,10 @@ import camp.nextstep.edu.missionutils.Console;
 public class Player
 {
     private static List<Integer> numbers = new ArrayList<>();
-    public void throwBall()
-    {
+    public void throwBall(){
         String input = Console.readLine();
+
+        numbers = new ArrayList<>();
 
         if (input.length() != 3)
             throw new IllegalArgumentException("[ERROR] 3개의 공을 던져주세요.");

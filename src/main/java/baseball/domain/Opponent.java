@@ -9,7 +9,16 @@ public class Opponent
 
     public void reset()
     {
-        numbers = pickUniqueNumbersInRange(1,9,3);
+        numbers = new ArrayList<>();
+        for(int i=0;i<3;i++)
+            getUniqueNumbers();
+    }
+    private void getUniqueNumbers()
+    {
+        int i = pickNumberInRange(1,9);
+        while(numbers.contains(i))
+            i = pickNumberInRange(1,9);
+        numbers.add(i);
     }
 
     public BallAndStrike countBallAndStrike(Player player)
@@ -21,7 +30,7 @@ public class Opponent
 
         for(int i=0;i<3;i++)
         {
-            if (playerNubmerList.get(i) == numbers.get(i))
+            if (Objects.equals(playerNubmerList.get(i), numbers.get(i)))
             {
                 strike++;
                 continue;
@@ -30,5 +39,9 @@ public class Opponent
                 ball++;
         }
         return new BallAndStrike(ball, strike);
+    }
+    public void print()
+    {
+        System.out.println(numbers);
     }
 }

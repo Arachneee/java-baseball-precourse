@@ -6,17 +6,27 @@ import baseball.domain.Player;
 import baseball.domain.State;
 import baseball.view.View;
 
+
 public class BaseBallController
 {
-    public void run()
+    private Opponent opponent;
+    private Player player;
+    private View view;
+    public void run(){
+        setOpponent();
+        player = new Player();
+        view = new View();
+        playBall();
+    }
+    private void setOpponent()
     {
-        Opponent opponent = new Opponent();
+        opponent = new Opponent();
         opponent.reset();
+        //opponent.print();
+    }
 
-        Player player = new Player();
-
-        View view = new View();
-
+    private void playBall()
+    {
         while (true)
         {
             view.viewPlayBall();
@@ -27,8 +37,8 @@ public class BaseBallController
                 continue;
             if (view.getState() == State.RESTART)
             {
-                opponent = new Opponent();
-                opponent.reset();
+                System.out.println("restart");
+                setOpponent();
                 continue;
             }
             if (view.getState() == State.END)
@@ -36,9 +46,8 @@ public class BaseBallController
                 view.viewOut();
                 break;
             }
-
         }
-
     }
+
 
 }

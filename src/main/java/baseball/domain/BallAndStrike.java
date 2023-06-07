@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 public class BallAndStrike
 {
@@ -20,5 +20,13 @@ public class BallAndStrike
         if(strike == 0)
             return ball + "볼";
         return ball + "볼 " + strike + "스트라이크";
+    }
+    public int getBall()
+    {
+        return ball;
+    }
+    public int getStrike()
+    {
+        return strike;
     }
 }

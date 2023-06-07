@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 import java.util.*;
 import static camp.nextstep.edu.missionutils.Randoms.*;
@@ -7,12 +7,12 @@ public class Opponent
 {
     private static List<Integer> numbers = new ArrayList<>();
 
-    public static void start()
+    public void reset()
     {
         numbers = pickUniqueNumbersInRange(1,9,3);
     }
 
-    private BallAndStrike countBallAndStrike(Player player)
+    public BallAndStrike countBallAndStrike(Player player)
     {
         List<Integer> playerNubmerList = player.getNumbers();
 
